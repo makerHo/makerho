@@ -2,18 +2,18 @@
 /**------------------header-------------------*/
 .header{
 	width:100% ;
-	height: 300px;
-	border: 1px solid red;
+	height: 500px;
+	border: 1px solid red;	
 }
 /*吸顶导航栏*/
 .nav{
-	height:56px;
+	height:40px;
 	width: 100%;
 	color: #fff;
 	background: #333;
 }
 .navfixed{
-	height: 56px;
+	height: 40px;
     background: #333;
     color: #999;
     top: 0;
@@ -25,20 +25,256 @@
 }
 /*导航栏内容*/
 .navLeft{
-	width: 50%;
+	width: 60%;
 	float: left;
-	height: 56px;
-	border: 1px solid red;
+	height: 40px;
+	/*border: 1px solid red;*/
 	box-sizing: border-box;
-	background: url(../icon/logo_gray.png) no-repeat left center;
+	/*background: url(../icon/logo_gray.png) no-repeat left center;*/
 }
 .navRight{
-	width: 50%;
+	width: 40%;
 	float: right;
-	height: 56px;
-	border: 1px solid blue;
+	height: 40px;
+	/*border: 1px solid blue;*/
+	box-sizing: border-box;
+	padding-left: 100px;
+	line-height: 56px;
+}
+.navLeft ul{}
+.navLeft li{
+	float: left;
+	line-height: 40px;
+}
+.navLeft li a:hover{
+	background: #222;
+	color: #fff;
+}
+.navRight a ,.navLeft li a{
+	 font-size: 14px;
+    color: #ccc;
+    height: 40px;
+    padding: 0 10px;
+    /*text-decoration: none;*/
+    display: inline-block;
+}
+.navLeft li img{
+	margin-top: 4px;
+}
+.navLeft li span:hover{
+	position: relative;
+	top: 5px;
+	display: inline-block;
+	border-top: 6px solid #999;
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+}
+.navLeft li span{
+	display: inline-block;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-left: 6px solid #999;
+}
+/*-----------------------*/
+.navspan{}
+/*nav right*/
+.navRight{
+	padding-left: 250px;
+}
+.navRight ul{
+	
+}
+.navRight>ul>li{
+	color: #999;
+	height: 40px;
+	width: 60px;
+	float:left;
+	line-height: 40px;
+	position: relative;
+	
+}
+.navRight>ul>li a{
+	font-size: 12px;
+	width: 60px;
+	text-align:left;
+	color: #fff;
+	
+}
+.navRight>ul>li img{
+	width: 25%;
+	position:absolute;
+	top: 3px;
+	left: 40%;
+}
+.navRight>ul>li:nth-child(3):hover ul{
+	display: block;
+}
+.navRight>ul>li:nth-child(3){
+	color: #fff;
+	line-height: 60px;
+	/*font-size:1px;*/
+}
+.navRight>ul>li:nth-child(4){
+	color: #fff;
+	background: #59C3D1;
+	line-height: 60px;
+	/*font-size:1px;*/
+}
+.navRight>ul>li:nth-child(5){
+	color: #fff;
+	background: #FFA859;
+	line-height: 60px;
+	/*font-size:1px;*/
+}
+.navRight>ul>li:nth-child(6){
+	color: #fff;
+	background: #FE5761;
+	line-height: 60px;
+	/*font-size:1px;*/
+}
+.navQul{
+	background: rgba(0,0,0,.3);
+	text-align: center;
+	color: #fff;
+	display: none;
+}
+.navQul li{
+	height: 40px;
+	line-height: 60px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+.navQul li img{
+	width: 25%;
+	position:absolute;
+	top: 3px;
+	left: 40%;
+}
+/*header second nav*/
+.headerBanner{
+	width: 1200px;
+	height: 500px;
+	margin: 0px auto;
+	border: 1px solid green;
+}
+.secnav{
+	width: 1200px;
+	/*height: 78px;*/
+	border: 1px solid purple;
+	/*padding-top:10px ;*/
+	/*padding-bottom: 30px;*/
+	box-sizing: border-box;
+	position: relative;
+	/*background: url(../icon/logo_sec.png) no-repeat top left;*/
+	
+}
+.secnav:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.secnavLeft{
+	width: 20%;
+	height: 75px;
+	padding-top: 10px;
+	/*border: 1px solid red;*/
+	/*background: salmon;*/
+	float: left;
 	box-sizing: border-box;
 }
+.secnavCenter{
+	width: 54%;
+	height: 75px;
+	/*border: 1px solid red;*/
+	/*background: sandybrown;*/
+	float: left;
+}
+.secnavCenter ul{}
+.secnavCenter li{
+	float: left;
+	width: 80px;
+	height: 75px;
+	/*border: 1px solid red;*/	
+	font-size: 20px;
+	font-family: "微软雅黑";
+	line-height: 75px;
+	text-align: center;
+}
+.secnavCenter li a{
+	color: #333;
+}
+.secnavCenter li a:hover{
+	color: #ff6767;
+}
+.secnavRight{
+	width: 21%;
+	height: 75px;
+	/*border: 1px solid red;*/
+	/*background: skyblue;*/
+	float: left;
+	line-height: 75px;
+}
+#secRiginp{
+	width: 160px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+    height: 20px;
+    line-height: 20px;
+    padding: 3px;
+}
+.secnavRight #secRiginp+label{
+	display:inline-block;
+	border-radius: 0 3px 3px 0;
+	float: right;
+    height: 28px;
+    font-size: 14px;
+    color: #fff;
+    float: right;
+    text-indent: 35px;
+    line-height: 28px;
+    background: #999;
+    width: 84px;
+    margin-top: 23px;
+}
+.banner{
+	width: 100%;
+	height: 360px;
+	border: 1px solid red;
+	overflow: hidden;
+	position: relative;
+}
+.barImgs{
+	width: 7200px;
+	position: absolute;
+	top: 0;
+}
+.barImgs img{
+	width:1200px;
+	float: left;
+	height: 360px;
+	vertical-align: top;
+}
+.banImgLi{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	z-index: 100;
+}
+.banImgLi li{
+	width: 8px;
+	height: 8px;
+	margin: 5px;
+	/*padding: 5px;*/
+	/*background: red;*/
+	border: 1px solid #fff;
+	border-radius: 8px;
+	float: left;
+}
+li.spotlight{
+	border: 2px solid #ff5f00;
+}
+
 /*--------------------header end--------------------*/
 
 /*--------------------section start--------------------*/
@@ -53,8 +289,59 @@
 
 /*--------------------footer start--------------------*/
 .footer{
-	/*width: ;*/
-	height: 300px;
+	width: 100%;
+	height:200px;
+	background: #999;
+	/*border: 1px solid blue;*/
+	box-sizing: border-box;
+	color: #666;
+}
+.footer a{
+	color: #666;
+}
+.footer-info{
+	width: 80%;
+	height: 25px;
+	/*border: 1px solid red;*/
+	margin: 10px auto;
+	text-align: center;
+	line-height: 25px;
+	
+}
+.footwrap{
+	width: 1200px;
+	margin: 0 auto;
 	border: 1px solid red;
 }
+.footer-info li{
+	font-size: 13px;
+	float: left;
+	/*width: 70px;*/
+	height: 25px;
+	cursor: pointer;
+	color: #ccc;
+	text-align:center;
+}
+.bainfo{
+	width: 100%;
+	height: 25px;
+	text-align:center;
+	/*border: 1px solid red;*/
+	margin: 0 auto;
+}
+.bainfo li{
+	font-size: 13px;
+	float: left;
+	/*width: 70px;*/
+	height: 30px;
+	cursor: pointer;
+	color: #ccc;
+	line-height: 25px;
+}
+.bainfo li:nth-child(7){
+	padding-left:20px ;
+	/*height: 11px;*/
+	background: url(img/24h.png) no-repeat left center;
+}
+
 /*--------------------footer end--------------------*/
