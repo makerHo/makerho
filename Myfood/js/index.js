@@ -67,8 +67,13 @@ var smlTab2 = document.querySelector(".smlTab2");
 				smlTab2.className="smlTab2";
 			})
 			value.className="smlTopls";
-			smlTab1.className="smlTab1 smlTabDisNone";
-			smlTab2.className="smlTab2 smlTabDisNone";
+			if(index==0){
+				smlTab1.className="smlTab1 smlTabDisNone";
+				smlTab2.className="smlTab2";
+			}else if(index==1){
+				smlTab1.className="smlTab1";
+				smlTab2.className="smlTab2 smlTabDisNone";
+			}	
 		})
 	})
  /**----------------------------------- window end--------------------------------*/ 
