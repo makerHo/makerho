@@ -76,5 +76,19 @@ var smlTab2 = document.querySelector(".smlTab2");
 			}	
 		})
 	})
+/**------------------ secBtmTopRight loop----------------*/
+	var secBtmTopLis = document.querySelectorAll(".secBtmTopLeft li");
+	var secBtmdivs = document.querySelectorAll(".secBtmdivs div")
+//		console.log(secBtmdivs)
+		secBtmTopLis.forEach(function(value,index){
+			value.addEventListener("click",function(){	
+				secBtmTopLis.forEach(function(v,i){
+					v.className="";
+					secBtmdivs[i].className="";	
+				})
+				value.className="secBtmTopLeftLoop";
+				secBtmdivs[index].className="secBtmdivsnone";
+			})
+		})
  /**----------------------------------- window end--------------------------------*/ 
 })

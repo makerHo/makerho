@@ -671,14 +671,104 @@ span{
 	color: #FE5761;
 	cursor: pointer;
 }
-/*------------------- setction buttom------------------*/
 .section-bottom{
+	margin-top: 30px;
 	width: 100%;
-	height: 100px;
-	border: 1px solid red;
+	border-top: 1px solid #999;
+}
+.section-bottom li:hover{
+	color: #FE5761;
+	cursor: pointer;	
+}
+.section-bottom li a:hover{
+	color: #FE5761;
+	cursor: pointer;	
+}
+.secBtmTop{
+	width: 100%;
+	height: 40px;
+	/*border: 1px solid blue;*/
+}
+.secBtmTopLeft{
+	width: 49%;
+	height: 40px;
+	/*border: 1px solid palegreen;*/
+	float: left;
+}
+.secBtmTopRight{
+	width: 49%;
+	height: 40px;
+	/*border: 1px solid palegreen;*/
+	float: right;
+	box-sizing: border-box;
+	padding-left: 117px;
+}
+.secBtmTopRight li{
+	width:65px;
+	height: 40px;
+	/*border: 1px solid red;*/
+	float: left;
+	font-size:16px;
+	color: #333;
+	line-height: 40px;
+	text-align: center;
+}
+.secBtmTopLeft li{
+	width: 15%;
+	height: 38px;
+	/*border: 1px solid green;*/
+	float: left;
+	cursor: pointer;
+	float: left;
+	font-size:18px;
+	color: #333;
+	line-height: 40px;
+	text-align: center;
+}
+.secBtmTopLeft li:nth-child(3){
+	width: 30%;
+	height: 38px;
+	/*border: 1px solid green;*/
+	float: left;
+}
+.secBtmTopLeft li.secBtmTopLeftLoop{
+	border-bottom: 2px solid #FE5761;
+}
+.secBtmdivs div{
+	width: 100%;
+	height: 930px;
+	/*border: 1px solid red;*/
+	display: none;
+}
+div.secBtmdivsnone{
+	display: block;
+}
+.secBtmShow{}
+.secBtmShow li{
+	width: 250px;
+	height: 310px;
+	/*border: 1px solid red;*/
+	margin-right:66px ;
+	float: left;
+	box-sizing: border-box;
+	color:#999;
+	font-size: 14px;
+	text-align: center;
+}
+.secBtmShow li img{
+	width: 100%;	
+}
+.secBtmShow li a{
+	color: #333;
+	font-size: 18px;
+	font-weight: 500;
+}
+.secBtmShow li:nth-child(4n){
+	margin-right: 0;
 }
 
 
+/**/
 /*--------------------section end--------------------*/
 
 
