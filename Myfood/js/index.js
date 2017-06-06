@@ -1,15 +1,13 @@
 window.addEventListener("load",function(){
-	//nav top
-	var nav = document.querySelector(".nav");
-//	console.log(nav)
-	var scrollTop=getScrollSize().top;
-//		console.log(scrollTop)
+	var nav = document.querySelector(".nav");	
 	//scroll 是window的事件
 	window.addEventListener("scroll",function(){
-		if(scrollTop>1){
-			nav.className="nav";
-		}else{
+		var scrollTop=getScrollSize().top;
+		if(scrollTop>40){
+			console.log(scrollTop)
 			nav.className="navfixed";
+		}else{
+			nav.className="nav";
 		}
 
 	})	
@@ -24,10 +22,8 @@ var banImgLis= document.querySelectorAll(".banImgLi li");
 		timer=setInterval(function(){
 			barImgs.style.left=-imgObjs.offsetWidth*index+"px";
 				for(var i=0;i<banImgLis.length;i++){
-					
 					banImgLis[i].className="";
 				}
-//				console.log(i)
 				banImgLis[index].className="spotlight";
 				index++;
 				if(index==banImgLis.length){
@@ -45,17 +41,18 @@ var banImgLis= document.querySelectorAll(".banImgLi li");
 					v.className="";
 					barDivs[i].className="";
 				})
-				value.className="barLeftLi ";
+				value.className="barLeftLi";
 				barDivs[index].className="barRitdiv"
-			})
-			value.addEventListener("mouseout",function(){
-				value.className="";
-				barDivs[index].className=""
-			})
+				//鼠标移除后 隐藏
+					barLis.forEach(function(value,index){
+					value.addEventListener("mouseout",function(){
+						value.className="";
+						barDivs[index].className="";
+					})	
+				})	
+			})	
 			
-		})
-	
-	
-	
+			
+		})	
  /**----------------------------------- window end--------------------------------*/ 
 })
