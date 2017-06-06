@@ -3,8 +3,8 @@ window.addEventListener("load",function(){
 	//scroll 是window的事件
 	window.addEventListener("scroll",function(){
 		var scrollTop=getScrollSize().top;
-		if(scrollTop>40){
-			console.log(scrollTop)
+		if(scrollTop>25){
+//			console.log(scrollTop)
 			nav.className="navfixed";
 		}else{
 			nav.className="nav";
