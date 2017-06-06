@@ -54,5 +54,22 @@ var banImgLis= document.querySelectorAll(".banImgLi li");
 			
 			
 		})	
+		
+//section midden top
+var smlTopLis= document.querySelectorAll(".smlTop li");
+var smlTab1 = document.querySelector(".smlTab1");
+var smlTab2 = document.querySelector(".smlTab2");
+	smlTopLis.forEach(function(value,index){
+		value.addEventListener("click",function(){
+			smlTopLis.forEach(function(v,i){
+				v.className="";
+				smlTab1.className="smlTab1";
+				smlTab2.className="smlTab2";
+			})
+			value.className="smlTopls";
+			smlTab1.className="smlTab1 smlTabDisNone";
+			smlTab2.className="smlTab2 smlTabDisNone";
+		})
+	})
  /**----------------------------------- window end--------------------------------*/ 
 })
