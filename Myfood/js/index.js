@@ -6,8 +6,8 @@ window.addEventListener("load",function(){
 //		console.log(scrollTop)
 	//scroll 是window的事件
 	window.addEventListener("scroll",function(){
-		if(scrollTop>56){
-			nav.className="";
+		if(scrollTop>1){
+			nav.className="nav";
 		}else{
 			nav.className="navfixed";
 		}
@@ -35,8 +35,25 @@ var banImgLis= document.querySelectorAll(".banImgLi li");
 				}
 		},3000)
 	}
-	
-	
+/** banner下Tab页*/	
+	var barLis=document.querySelectorAll(".barMeLeft li");
+	var barDivs = document.querySelectorAll(".barMeRight div");
+//	console.log(barDivs)
+		barLis.forEach(function(value,index){
+			value.addEventListener("mouseover",function(){
+				barLis.forEach(function(v,i){
+					v.className="";
+					barDivs[i].className="";
+				})
+				value.className="barLeftLi ";
+				barDivs[index].className="barRitdiv"
+			})
+			value.addEventListener("mouseout",function(){
+				value.className="";
+				barDivs[index].className=""
+			})
+			
+		})
 	
 	
 	
