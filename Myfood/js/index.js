@@ -4,7 +4,7 @@ window.addEventListener("load",function(){
 	window.addEventListener("scroll",function(){
 		var scrollTop=getScrollSize().top;
 		if(scrollTop>25){
-//			console.log(scrollTop)
+			console.log(scrollTop)
 			nav.className="navfixed";
 		}else{
 			nav.className="nav";
@@ -90,5 +90,19 @@ var smlTab2 = document.querySelector(".smlTab2");
 				secBtmdivs[index].className="secBtmdivsnone";
 			})
 		})
+		
+/**open door */
+var secoprdLeftmo1 = document.querySelector(".secoprdLeft");	
+var secoprdRightmo1 = document.querySelector(".secoprdRight");	
+	window.addEventListener("scroll",function(){
+		var scrollTop=getScrollSize().top;
+		if(scrollTop>300){
+			secoprdLeftmo1.className="secoprdLeft secoprdLeftmo1";
+			secoprdRightmo1.className="secoprdRight secoprdRightmo1"
+		}else{
+			secoprdLeftmo1.className="secoprdLeft";
+			secoprdRightmo1.className="secoprdRight";
+		}
+	})
  /**----------------------------------- window end--------------------------------*/ 
 })

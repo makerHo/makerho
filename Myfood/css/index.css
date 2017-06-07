@@ -766,16 +766,102 @@ div.secBtmdivsnone{
 .secBtmShow li:nth-child(4n){
 	margin-right: 0;
 }
+.section-opendoor{
+	width: 1200px;
+	height: 200px;
+	/*border-top: 1px solid #ccc;*/
+	border-bottom: 1px solid #999;
+	margin-bottom: 20px;
+	background: url(../img/secclosedoor3.jpg) center center;
+	background-size:100% 100% ;
+	position: relative;
+	overflow: hidden;
+}
+/*--------------------close door---------------------*/
+.secoprdLeft{
+	width: 1200px;
+	height: 200px;
+	/*border: 1px solid red;*/
+	/*background: skyblue;*/
+	position: absolute;
+	left: -1100px;
+	top 0
+}
+.secoprdRight li,.secoprdLeft li{
+	width: 120px;
+	height: 200px;
+	margin-left:10px;
+	/*border: 1px solid green;*/
+	float: left;	
+	font-size: 100px;
+	text-align: center;
+	line-height: 200px;
+	font-family:qingniaoliujiang ;
+}
+@font-face {
+	font-family:qingniaoliujiang;
+	src: url("../font/bb2487/zhongqiliujiang.ttf");
+}
+.secoprdLeftmo1{
+	transform: translateX(1100px);
+	transition: 2s;
+}
+.secoprdRight{
+	width: 1200px;
+	height: 200px;
+	/*border: 1px solid red;*/
+	/*background: rgba(14,255,12,.5);*/
+	position: absolute;
+	right: -1100px;
+	top 0
+}
+/*.secoprdRight li{
+	width: 120px;
+	height: 200px;
+	border: 1px solid blue;	
+	float: left;
+}*/
+.secoprdRight{
+	width: 1200px;
+	height: 200px;
+	border: 1px solid red;
+	/*background:  rgba(254,16,12,.5);*/
+	position: absolute;
+	right: -1100px;
+	top 0
+}
+.secoprdRightmo1{
+	transform: translateX(-1100px);
+	transition: 2s;
+}
 
-
-/**/
 /*--------------------section end--------------------*/
 
 
 /*--------------------footer start--------------------*/
 .footer{
 	/*width: ;*/
+	height: 1000px;
+	border: 1px solid red;
+}
+.footerLeft{
+	width: 400px;
+	height: 300px;
+	border: 1px solid blue;
+	float: left;
+}
+.footerRight{
+	width: 400px;
 	height: 300px;
 	border: 1px solid red;
+	float: right;
+}
+.footerLeft1{
+	transform: translateX(-100px);
+	transition: 1s;
+}
+.footerRight1{
+	transform: translateX(200px);
+	transition: 1s;
 }
 /*-------------s-------footer end--------------------*/
