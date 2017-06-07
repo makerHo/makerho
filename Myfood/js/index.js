@@ -1,14 +1,21 @@
 window.addEventListener("load",function(){
-	var nav = document.querySelector(".nav");	
+	var nav = document.querySelector(".nav");
+	var aside=document.querySelector(".aside");
 	//scroll 是window的事件
 	window.addEventListener("scroll",function(){
 		var scrollTop=getScrollSize().top;
 		if(scrollTop>25){
 			console.log(scrollTop)
 			nav.className="navfixed";
+			aside.className="aside asideblock"
 		}else{
 			nav.className="nav";
+			aside.className="aside";
 		}
+		aside.addEventListener("click",function(){
+			document.documentElement.scrollTop=0;
+			document.body.scrollTop=0;
+		})
 
 	})	
 
@@ -166,6 +173,6 @@ console.log(sectionOperDoorScaleLi)
 //	},800)
 //}
 //				
-
+/** ------------回到顶部-------------*/
  /**----------------------------------- window end--------------------------------*/ 
 })
