@@ -677,7 +677,7 @@ span{
 	border-top: 1px solid #999;
 }
 .section-bottom li:hover{
-	color: #FE5761;
+	color: #FE5761;	
 	cursor: pointer;	
 }
 .section-bottom li a:hover{
@@ -765,11 +765,10 @@ div.secBtmdivsnone{
 }
 .secBtmShow li:nth-child(4n){
 	margin-right: 0;
-}
+}/*--------------------close door---------------------*/
 .section-opendoor{
 	width: 1200px;
 	height: 200px;
-	/*border-top: 1px solid #ccc;*/
 	border-bottom: 1px solid #999;
 	margin-bottom: 20px;
 	background: url(../img/secclosedoor3.jpg) center center;
@@ -777,12 +776,10 @@ div.secBtmdivsnone{
 	position: relative;
 	overflow: hidden;
 }
-/*--------------------close door---------------------*/
+
 .secoprdLeft{
 	width: 1200px;
 	height: 200px;
-	/*border: 1px solid red;*/
-	/*background: skyblue;*/
 	position: absolute;
 	left: -1100px;
 	top 0
@@ -791,16 +788,30 @@ div.secBtmdivsnone{
 	width: 120px;
 	height: 200px;
 	margin-left:10px;
-	/*border: 1px solid green;*/
-	float: left;	
+	float: left;
+	color: #fff;
+	/*border: 1px solid red;*/	
 	font-size: 100px;
 	text-align: center;
 	line-height: 200px;
-	font-family:qingniaoliujiang ;
+	font-family:qingniaoliujiang;
+	transition: 1s;
 }
+
 @font-face {
 	font-family:qingniaoliujiang;
-	src: url("../font/bb2487/zhongqiliujiang.ttf");
+	src: url("../font/bb2487/zhongqiliujiang.ttf");	
+}
+.secoprdRight li:hover,.secoprdLeft li:hover{
+	transform: scale(2,2);
+	color: #000;
+	transition: 1s;	
+}
+li.secContScale{
+	transform: scale(2,2);
+	color: black;
+	color: #000;
+	transition: 1s;
 }
 .secoprdLeftmo1{
 	transform: translateX(1100px);
@@ -809,23 +820,6 @@ div.secBtmdivsnone{
 .secoprdRight{
 	width: 1200px;
 	height: 200px;
-	/*border: 1px solid red;*/
-	/*background: rgba(14,255,12,.5);*/
-	position: absolute;
-	right: -1100px;
-	top 0
-}
-/*.secoprdRight li{
-	width: 120px;
-	height: 200px;
-	border: 1px solid blue;	
-	float: left;
-}*/
-.secoprdRight{
-	width: 1200px;
-	height: 200px;
-	border: 1px solid red;
-	/*background:  rgba(254,16,12,.5);*/
 	position: absolute;
 	right: -1100px;
 	top 0

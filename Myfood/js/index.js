@@ -94,6 +94,7 @@ var smlTab2 = document.querySelector(".smlTab2");
 /**open door */
 var secoprdLeftmo1 = document.querySelector(".secoprdLeft");	
 var secoprdRightmo1 = document.querySelector(".secoprdRight");	
+var sectionOperDoorScaleLi = document.querySelectorAll(".secoprdRight li");
 	window.addEventListener("scroll",function(){
 		var scrollTop=getScrollSize().top;
 		if(scrollTop>300){
@@ -103,6 +104,68 @@ var secoprdRightmo1 = document.querySelector(".secoprdRight");
 			secoprdLeftmo1.className="secoprdLeft";
 			secoprdRightmo1.className="secoprdRight";
 		}
+		//字体放大效果动画
+		autuplays(0);
+		function autuplays(index){
+			var timerlis=setInterval(function(){
+				for(var i=0;i<sectionOperDoorScaleLi.length;i++){
+							sectionOperDoorScaleLi[i].className="";
+						}
+						sectionOperDoorScaleLi[index].className="secContScale";
+						index++;
+						if(index==sectionOperDoorScaleLi.length){
+							index=0
+						}
+			},800)
+		}
+		
 	})
+
+/**section-opendoor 背景随机*/
+var openDoorRandomBg = document.querySelector(".section-opendoor")
+var timer=setInterval(function(){
+	var randoms=Math.floor(Math.random()*7)
+	openDoorRandomBg.style.background="url(img/secclosedoor"+randoms+".jpg)"
+	openDoorRandomBg.style.backgroundSize="100% 100%"
+},2000)
+/** ---------------close door font--------------*/
+var sectionOperDoorScaleLi = document.querySelectorAll(".secoprdRight li");
+console.log(sectionOperDoorScaleLi)
+//	var timer = setInterval(function(){
+//		sectionOperDoorScaleLi.forEach(function(value,index){
+//				sectionOperDoorScaleLi.forEach(function(v,i){
+//					v.className="";
+//				})
+//			value.className="seccontscale";
+//		})
+//	},1000)
+/////////////////////////////
+
+//sectionOperDoorScaleLi.forEach(function(value,index){
+//			var timers=setInterval(function(){
+//				sectionOperDoorScaleLi.forEach(function(v,i){
+//							v.className="";
+//						})
+//					value.className="secContScale";
+//			},3000)
+//				
+//		})
+
+////////////////////////////
+//autuplays(0);
+//function autuplays(index){
+//	var timerlis=setInterval(function(){
+//		for(var i=0;i<sectionOperDoorScaleLi.length;i++){
+//					sectionOperDoorScaleLi[i].className="";
+//				}
+//				sectionOperDoorScaleLi[index].className="secContScale";
+//				index++;
+//				if(index==sectionOperDoorScaleLi.length){
+//					index=0
+//				}
+//	},800)
+//}
+//				
+
  /**----------------------------------- window end--------------------------------*/ 
 })
