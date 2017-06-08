@@ -42,7 +42,7 @@ var errorMsg=null;
  		feedback.innerHTML=errorMsg;
  	}else{
  		sessionStorage.setItem("username",username.value);
- 		location.href="index.html"
+ 		location.href="index.html";
  	}
  })
 	

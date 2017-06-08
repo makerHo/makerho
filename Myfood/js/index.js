@@ -138,25 +138,6 @@ var timer=setInterval(function(){
 /** ---------------close door font--------------*/
 var sectionOperDoorScaleLi = document.querySelectorAll(".secoprdRight li");
 console.log(sectionOperDoorScaleLi)
-//	var timer = setInterval(function(){
-//		sectionOperDoorScaleLi.forEach(function(value,index){
-//				sectionOperDoorScaleLi.forEach(function(v,i){
-//					v.className="";
-//				})
-//			value.className="seccontscale";
-//		})
-//	},1000)
-/////////////////////////////
-
-//sectionOperDoorScaleLi.forEach(function(value,index){
-//			var timers=setInterval(function(){
-//				sectionOperDoorScaleLi.forEach(function(v,i){
-//							v.className="";
-//						})
-//					value.className="secContScale";
-//			},3000)
-//				
-//		})
 
 ////////////////////////////
 //autuplays(0);
@@ -174,5 +155,25 @@ console.log(sectionOperDoorScaleLi)
 //}
 //				
 /** ------------回到顶部-------------*/
+/** sessionStroage */
+var navRightL=document.querySelector(".navRightL");
+var navRightRh=document.querySelector(".navRightRh");
+var feedBack1=document.querySelectorAll(".navRightRh div")[0];
+var feedBack2=document.querySelectorAll(".navRightRh div")[1];
+console.log(feedBack2)
+	if(sessionStorage.getItem("username")){
+		navRightL.style.display="none";
+		navRightRh.style.display="block";
+		feedBack1.innerHTML=sessionStorage.getItem("username")
+	}else{
+		navRightL.style.display="block";
+		navRightRh.style.display="none";
+	}
+	//点击注销
+	feedBack2.addEventListener("click",function(){
+		sessionStorage.removeItem("username");
+		navRightL.style.display="block";
+		navRightRh.style.display="none";
+	})
  /**----------------------------------- window end--------------------------------*/ 
 })

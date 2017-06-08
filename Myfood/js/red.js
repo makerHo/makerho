@@ -105,7 +105,7 @@ var errorMsg=null;
 			return false;
 		}else{
 			sessionStorage.setItem("username",username.value)
-			location.href="index.html"
+			location.href="login.html"
 		}
 	})
 /*----------------window load end----------------------*/
