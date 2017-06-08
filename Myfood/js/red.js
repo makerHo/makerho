@@ -65,9 +65,9 @@ var errorMsg=null;
 	repwd.addEventListener("keyup",function(){
 		console.log(this.value)
 		if(trim(this.value)==trim(pwd.value)){
-			repwdShow.innerHTML="与上次密码输入一致";
+			repwdShow.innerHTML="密码强度高";
 			repwdShow.style.color="green"
-			errorMsg="与上次密码输入一致";
+			errorMsg="";
 		}else{
 			repwdShow.innerHTML="与上次密码输入不一致";
 			repwdShow.style.color="red"
@@ -77,27 +77,34 @@ var errorMsg=null;
 	// Btn 验证
 	regBtn.addEventListener("click",function(){
 		if(trim(email.value).length==0){
-			emailShowShow.innerHTML="邮箱不能为空";
+			emailShow.innerHTML="邮箱不能为空";
+			emailShow.style.color="red";
 			errorMsg="邮箱不能为空";
 			return false;
 		}else if(trim(username.value).length==0){
 			usernameShow.innerHTML="用户名不能为空";
+			usernameShow.style.color="red";
 			errorMsg="用户名不能为空";
 			return false;
 		}else if(trim(pwd.value).length==0){
 			pwdShow.innerHTML="密码不能为空";
+			pwdShow.style.color="red";	
 			errorMsg="密码不能为空";
 			return false;
 		}else if(trim(repwd.value).length==0){
 			repwdShow.innerHTML="确认密码不能为空";
+			repwdShow.style.color="red";
 			errorMsg="确认密码不能为空";
-		}else if(errorMsg){
-			emailShowShow.innerHTML=errorMsg;
+		}
+		if(errorMsg){
+			console.log(errorMsg)
+			emailShow.innerHTML=errorMsg;
 			usernameShow.innerHTML=errorMsg;
 			pwdShow.innerHTML=errorMsg;
 			repwdShow.innerHTML=errorMsg;
 			return false;
 		}else{
+			sessionStorage.setItem("username",username.value)
 			location.href="index.html"
 		}
 	})

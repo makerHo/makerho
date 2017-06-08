@@ -25,20 +25,26 @@ var secMidBoxBtmlis = document.querySelectorAll(".secMidBoxBtm>ul>li");
 	
 //login页面登录验证
 var username=document.querySelector(".username");
+var feedback = document.querySelector(".feedback")
 var pwd=document.querySelector(".pwd");
 var loginBtn=document.querySelector(".loginBtn");
-var xhr=new XMLHttpRequest();
-	loginBtn.addEventListener("click",function(){
-		xhr.open("post","member.txt")
-		xhr.send(null);
-		xhr.addEventerListener("readyStatechange",function(){
-			if(xhr.readyState==4){
-				if(xhr.status==200){
-					
-
-				}
-			}
-		})
-	})
+var errorMsg=null;
+ loginBtn.addEventListener("click",function(){
+ 	if(trim(username.value).length==0){
+ 		feedback.innerHTML="用户名不能为空";
+ 		errorMsg="用户名不能为空";
+ 		return false;
+ 	}else if(trim(pwd.value)==0){
+ 		feedback.innerHTML="密码不能为空";
+ 		errorMsg="密码不能为空";	
+ 		return false;
+ 	}else if(errorMsg){
+ 		feedback.innerHTML=errorMsg;
+ 	}else{
+ 		sessionStorage.setItem("username",username.value);
+ 		location.href="index.html"
+ 	}
+ })
+	
 /**----------------------------------------------*/
 })
