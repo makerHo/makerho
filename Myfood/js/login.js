@@ -22,5 +22,23 @@ var secMidBoxBtmlis = document.querySelectorAll(".secMidBoxBtm>ul>li");
 			secMidBoxBtmlis[index].className="regDisplay";
 		});
 	});
+	
+//login页面登录验证
+var username=document.querySelector(".username");
+var pwd=document.querySelector(".pwd");
+var loginBtn=document.querySelector(".loginBtn");
+var xhr=new XMLHttpRequest();
+	loginBtn.addEventListener("click",function(){
+		xhr.open("post","member.txt")
+		xhr.send(null);
+		xhr.addEventerListener("readyStatechange",function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					
+
+				}
+			}
+		})
+	})
 /**----------------------------------------------*/
 })
