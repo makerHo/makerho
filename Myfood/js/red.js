@@ -108,5 +108,9 @@ var errorMsg=null;
 			location.href="login.html"
 		}
 	})
+	//禁止粘贴
+	repwd.addEventListener("paste",function(evt){
+		evt.preventDefault();
+	})
 /*----------------window load end----------------------*/
 })

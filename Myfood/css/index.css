@@ -143,21 +143,19 @@
 .feedback2,.feedback1{
 	width: 40px;
 	height: 40px;
-	background: #fff;
 	margin-left: 20px;
-	border: 1px solid #ccc;
 	float: left;
-	color:#000000;
+	color:#ccc;
 	font-size:16px;
 	line-height: 40px;
 }
 .feedback1{
 	border-radius: 40px;
-	border: 1px solid #ccc;
+/*	border: 1px solid #ccc;*/
 }
 .feedback2 a{
 	width: 60px;
-	color: #000;
+	color: #ccc;
 }
 .navRightRh{
 	width: 200px;
@@ -294,6 +292,8 @@
 	width: 7200px;
 	position: absolute;
 	top: 0;
+	/*transition 用来提供banner的过度*/
+	/*transition: 2s;*/
 }
 .barImgs img{
 	width:1200px;
@@ -600,7 +600,7 @@ span{
 }
 .secMidLeft img:hover,.secMidMid img:hover,.secMidRight img:hover{
 	transform: scale(1.3,1.3);
-	transition:1s;
+	transition:2s;
 	cursor: pointer;
 }
 .smlMid{
@@ -741,8 +741,16 @@ div.secBtmdivsnone{
 	font-size: 14px;
 	text-align: center;
 }
+.secBtmShow li:hover{
+	border: 2px solid #FE5761;
+}
 .secBtmShow li img{
 	width: 100%;	
+	transform: 0.5s;
+}
+.secBtmShow li img:hover{
+	transform: rotateY(20deg);	
+	transform: 0.5s;
 }
 .secBtmShow li a{
 	color: #333;
@@ -761,6 +769,7 @@ div.secBtmdivsnone{
 	background-size:100% 100% ;
 	position: relative;
 	overflow: hidden;
+	transition: 1s;
 }
 
 .secoprdLeft{
@@ -959,6 +968,7 @@ dd.guanzhu span{
 	line-height: 30px;
 	font-weight: 600;
 	display: block;
+	border: 1px solid #FE5761;
 	font-family: qingniaoliujiang;
 	margin:0px 0  0 10px;
 	color: #FE5761;

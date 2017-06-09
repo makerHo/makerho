@@ -91,6 +91,9 @@
 	text-align: center;
 	margin-left: 15px;
 }
+.headerlogins li a{
+	color: #ccc;
+}
 .headerlogins li:nth-child(2){}
 .header-nav-logins{}
 .header-nav-logins li{

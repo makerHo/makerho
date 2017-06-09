@@ -23,6 +23,8 @@ window.addEventListener("load",function(){
 var imgObjs= document.querySelector(".barImgs img");
 var barImgs = document.querySelector(".barImgs")
 var banImgLis= document.querySelectorAll(".banImgLi li");
+//	barImgs+=barImgs;
+//	imgObjs+=imgObjs;
 //	console.log(banImgLis)
 	autoplay(1);
 	function autoplay(index){
@@ -112,19 +114,19 @@ var sectionOperDoorScaleLi = document.querySelectorAll(".secoprdRight li");
 			secoprdRightmo1.className="secoprdRight";
 		}
 		//字体放大效果动画
-		autuplays(0);
-		function autuplays(index){
-			var timerlis=setInterval(function(){
-				for(var i=0;i<sectionOperDoorScaleLi.length;i++){
-							sectionOperDoorScaleLi[i].className="";
-						}
-						sectionOperDoorScaleLi[index].className="secContScale";
-						index++;
-						if(index==sectionOperDoorScaleLi.length){
-							index=0
-						}
-			},800)
-		}
+//		autuplays(0);
+//		function autuplays(index){
+//			var timerlis=setInterval(function(){
+//				for(var i=0;i<sectionOperDoorScaleLi.length;i++){
+//							sectionOperDoorScaleLi[i].className="";
+//						}
+//						sectionOperDoorScaleLi[index].className="secContScale";
+//						index++;
+//						if(index==sectionOperDoorScaleLi.length){
+//							index=0
+//						}
+//			},800)
+//		}
 		
 	})
 
@@ -140,19 +142,19 @@ var sectionOperDoorScaleLi = document.querySelectorAll(".secoprdRight li");
 console.log(sectionOperDoorScaleLi)
 
 ////////////////////////////
-//autuplays(0);
-//function autuplays(index){
-//	var timerlis=setInterval(function(){
-//		for(var i=0;i<sectionOperDoorScaleLi.length;i++){
-//					sectionOperDoorScaleLi[i].className="";
-//				}
-//				sectionOperDoorScaleLi[index].className="secContScale";
-//				index++;
-//				if(index==sectionOperDoorScaleLi.length){
-//					index=0
-//				}
-//	},800)
-//}
+autuplays(0);
+function autuplays(index){
+	var timerlis=setInterval(function(){
+		for(var i=0;i<sectionOperDoorScaleLi.length;i++){
+					sectionOperDoorScaleLi[i].className="";
+				}
+				sectionOperDoorScaleLi[index].className="secContScale";
+				index++;
+				if(index==sectionOperDoorScaleLi.length){
+					index=0
+				}
+	},800)
+}
 //				
 /** ------------回到顶部-------------*/
 /** sessionStroage */
