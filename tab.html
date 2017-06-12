@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		.wrap{
+			width:800px;
+			height:264px;
+			border:1px solid blue;
+			margin:0 auto;
+		}
+		.wrap li{
+			width:100px;
+			height:50px;
+			border:1px solid red;
+			margin-left:10px;
+			float:left;
+		}
+		.wrap .lichange{
+			position:relative;
+			top:12px;
+			border-bottom:none;
+			background:#fff;
+		}
+		.demo div{
+			width:800px;
+			height:200px;
+			border:1px solid green;
+			display:none;
+		}
+		.demo .spotlight{
+			display:block;
+		}
+		.wrap ul{
+			margin-bottom:10px;
+
+		}
+		.wrap ul:after{
+			content:"";
+			display:block;
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li class="lichange">1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<div class="demo">
+			<div class="spotlight">1</div>
+			<div>2</div>
+			<div>3</div>
+		</div>
+	</div>
+	<script>
+		var lis = document.querySelectorAll(".wrap ul li");
+		var divs = document.querySelectorAll(".demo div");
+		var wrap = document.querySelector(".wrap ul");
+		console.log(wrap)
+		// console.log(lis);
+		// console.log(divs);
+		var index=0
+		var timer = setInterval(function(){
+			lis.forEach(function(v,i){
+				v.className="";
+				divs[i].className="";
+			})
+			lis[index].className="lichange";
+			divs[index].className="spotlight";
+			index++;
+			if(index==lis.length){
+				index=0;
+			};
+			console.log(index)
+		},1000)
+
+		wrap.addEventListener("mouseover",function(){
+			clearInterval(timer);
+		})
+		lis.forEach(function(value,index){
+			value.addEventListener("mouseover",function(){
+				lis.forEach(function(v,i){
+					v.className="";
+					divs[i].className="";
+				})
+				value.className="lichange";
+				divs[index].className="spotlight";
+			})
+		})
+		lis.forEach(function(value,index){
+			value.addEventListener("mouseout",function(){
+					timer = setInterval(function(){
+					lis.forEach(function(v,i){
+						v.className="";
+						divs[i].className="";
+					})
+					lis[index].className="lichange";
+					divs[index].className="spotlight";
+					index++;
+					if(index==lis.length){
+						index=0;
+					};
+					console.log(index)
+				},1000)
+			})		
+		})
+	</script>
+</body>
+</html>

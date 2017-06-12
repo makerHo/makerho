@@ -139,22 +139,19 @@ var timer=setInterval(function(){
 },2000)
 /** ---------------close door font--------------*/
 var sectionOperDoorScaleLi = document.querySelectorAll(".secoprdRight li");
-console.log(sectionOperDoorScaleLi)
-
-////////////////////////////
-autuplays(0);
-function autuplays(index){
-	var timerlis=setInterval(function(){
-		for(var i=0;i<sectionOperDoorScaleLi.length;i++){
-					sectionOperDoorScaleLi[i].className="";
-				}
-				sectionOperDoorScaleLi[index].className="secContScale";
-				index++;
-				if(index==sectionOperDoorScaleLi.length){
-					index=0
-				}
-	},800)
-}
+	autuplays(0);
+	function autuplays(index){
+		var timerlis=setInterval(function(){
+			for(var i=0;i<sectionOperDoorScaleLi.length;i++){
+						sectionOperDoorScaleLi[i].className="";
+					}
+					sectionOperDoorScaleLi[index].className="secContScale";
+					index++;
+					if(index==sectionOperDoorScaleLi.length){
+						index=0
+					}
+		},800)
+	}
 //				
 /** ------------回到顶部-------------*/
 /** sessionStroage */
