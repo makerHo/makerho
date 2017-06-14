@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		body{
+			background:#bbb;
+		}
+		.player{
+			border:1px solid red;
+			height:555px;
+			width:860px;
+		}
+		.player_header{
+			height:40px;
+			background:rgba(0,0,0,.8);
+		}
+		.player_body{
+			height:485px;
+		}
+		.player_body video{
+			width:100%;
+			height:485px;
+		}
+		.player_footer{
+			height:30px;
+			background:rgba(255,255,255,.8);
+		}
+		.controls li{
+			float:left;
+			cursor:pointer;
+			margin-left:10px;
+    		border: 1px solid red;
+		}
+		.controls_fullscreen{
+			background:gray;
+			position:fixed;
+			z-index:2147483648;
+			width:100%;
+			left:0;
+			bottom:0;
+		}
+		.controls li:nth-child(2){
+			width:52%;
+		}
+		.controls li:nth-child(2) input{
+			width:100%;
+		}
+		.controls li img{
+			width:10%;
+		}
+	</style>
+</head>
+<body> 
+	
+	<div class="player">
+		<div class="player_header">
+		
+		</div>
+		<div class="player_body">
+			<video poster="305620.jpg" class="media">
+				<source src="a.mp4"></source>
+			</video>
+		</div>
+		<div class="player_footer">
+			<ul class="controls">
+				<li class="controlsBtn">播放</li>
+				<li><input type="range" class="progressBar" value=10 min=0 max=100></li>
+				<li class="timeprogress">
+					<span class="c"></span>
+					<span class="d"></span>
+				</li>
+				<li><input type="range" max=100 min=0 class="volumeBtn"></li>
+				<li class="volumeProgress">66</li>
+				<li class="mute">静音</li>
+				<li class="fullScreenBtn">全屏</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var	controls = document.querySelector(".controls")
+		var	controlsBtn = document.querySelector(".controlsBtn")
+		var	media = document.querySelector(".media")
+		var	timeProgress = document.querySelector(".timeprogress")
+		var	progressBar = document.querySelector(".progressBar")
+		var	c = document.querySelector(".c")
+		var	d = document.querySelector(".d")
+		var	mute = document.querySelector(".mute")
+		var	volumeBtn = document.querySelector(".volumeBtn")
+		var	fullScreenBtn = document.querySelector(".fullScreenBtn")
+		var	volumeProgress = document.querySelector(".volumeProgress")
+		var	player_footer = document.querySelector(".player_footer")
+		console.log(player_footer)
+		var b = true;
+		/*点击 [播放 停止] 切换*/ 
+			controlsBtn.addEventListener("click",function(){
+				if(b){
+					media.play();
+					b=false;
+					this.innerHTML="停止"
+					this.style.background="url(push.png)"
+				}else{
+					media.pause()
+					b=true
+					this.innerHTML="播放"
+				}
+			})
+			//播放器转换为具体事件
+			function timeConvert(timeValue){
+			    var mydate=new Date();
+			    var starttime=mydate.getTime();
+			    var timer=setInterval(function(){
+			        var s=new Date();
+			        var d=s.getTime()-starttime;
+			        d=parseInt(d/1000);
+			        u1=Math.floor(d/60);
+			        u2=Math.floor(d%60);
+			        if (u1<10) u1='0' + u1;
+			        if (u2<10) u2='0' + u2;
+			        console.log(u1+":"+u2);
+			    },1000);
+			}
+			//时间更新事件
+			media.addEventListener("timeupdate",function(){
+				var h = Math.floor(this.duration/3600);
+				var m = Math.floor((this.duration/60)-60*h);
+				var s = Math.floor((this.duration)-60*h-m*60);
+				console.log((this.duration)-60*h-m*60)
+				//事件进度
+				timeProgress.innerHTML=parseInt(this.currentTime)+"/"+h+":"+m+":"+s;
+				//进度条
+				progressBar.value= parseInt(this.currentTime);
+				progressBar.max= parseInt(this.duration);	
+			})
+			//拖动进度条
+			var isDrag = true;
+			//鼠标按下
+			progressBar.addEventListener("mousedown",function(){
+				isDrag = true;
+			})
+			//鼠标移动
+			progressBar.addEventListener("mousemove",function(){
+				if(isDrag){
+					//
+					media.currentTime = this.value;
+					timeProgress.innerHTML=parseInt(media.currentTime)+"/"+parseInt(media.duration);
+				}
+			})
+			//鼠标松开
+			progressBar.addEventListener("mouseup",function(){
+				isDrag = false;
+			})
+			//mute 点击静音
+			var temp=null
+					mute.addEventListener("click",function(){
+					//[静音开启]切换
+					media.muted= (media.muted==true)?false:true;
+					//静音开启 文字
+					mute.innerHTML=(media.muted==true)?"开启":"静音";
+					//点击静音时，把当前的音量保存到Temp变量中
+					if(media.muted==true){
+						temp=volumeBtn.value;
+						volumeBtn.value=0;
+						volumeProgress.innerHTML=0;
+					}else{
+						volumeBtn.value = temp;
+						volumeProgress.innerHTML=temp
+					}
+				})
+			
+			//默认音量
+			media.volume = 0.66;
+			//拖动音量进度条
+			volumeBtn.addEventListener("mousemove",function(){
+				media.volume = this.value/100;
+				console.log(this.value)
+				volumeProgress.innerHTML=this.value;
+				if(this.value==0){
+					mute.innerHTML="开启"
+				}else{
+					mute.innerHTML="静音"
+					media.volume=this.value/100;
+				}
+			});
+			//全屏切换
+			var isFullScreen=true;
+			fullScreenBtn.addEventListener("click",function(){
+				if(isFullScreen){
+					//webkit下的全屏
+					media.webkitRequestFullscreen();
+					player_footer.className="controls_fullscreen player_footer";
+					isFullScreen=false;
+					this.innerHTML="缩小";
+				}else{
+					media.webkitExitFullscreen();
+					player_footer.className="player_footer";
+					isFullScreen=true;
+					this.innerHTML="全屏";
+				}
+			})
+	</script>
+</body>
+</html>
