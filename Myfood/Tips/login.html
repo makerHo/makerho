@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="Tools.js"></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		body{
+			background:#ccc;
+		}
+		.header{
+			background:skyblue;
+		}
+		.header-mid{
+			width:1200px;
+			height:50px;
+			border:1px solid red;
+			margin:0 auto;
+		}
+		.logOuts,.logRegs{
+			width:200px;
+			height:50px;
+			border:1px solid blue;
+			float:right;
+		}
+		/*-------------------------register框----------------*/
+		.logOuts{
+			display:none;
+
+		}
+		.logOuts li,.logRegs li{
+			width:66px;
+			height:50px;
+			border:1px solid green;
+			font-size:20px;
+			line-height:50px;
+			font-weight:600;
+			text-align:center;
+			float:left;
+			box-sizing:border-box;
+			color:#eee;
+			cursor:pointer;
+		}
+/*----------------点击隐藏-----------------*/
+		.loginIn{
+
+		}
+		.loginOut{
+
+		}
+/*----------------loginBox----------------*/
+		.loginBox{
+			width:210px;
+			height:312px;
+			border:1px solid green;
+			position:absolute;
+			padding:30px;
+			position:relative;
+			background:rgba(0,0,0,.7);
+			box-shadow:1px 1px 6px #000;
+			color:#ddd;
+			/*display:none;*/
+		}
+		div.elementHidden{
+			display:block;
+		}
+		div.elementShow{
+			display:none;
+		}
+		.loginBox li{
+			/*width:90%;*/
+			height:30px;
+			border:1px solid purple;
+			margin-top:10px;
+		}
+		li.feedback{
+			margin-top:0;
+			font-size:14px;
+			color:#fff;
+			text-align:center;
+			line-height:30px;
+		}
+		.loginBox li input{
+			width:99%;
+			height:30px;
+			font-size:20px;
+			color:#333;
+			background:rgba(255,255,255,0.5);
+		}
+		.closeIcon{
+			position:absolute;
+			right:10px;
+			top:0px;
+			font-size:25px;
+		}
+		.loginBox .upfiles{
+			height:100px;
+			text-align:center;
+			overflow:hidden;
+		}
+		.imgLoad{
+			width:70px;
+			height:70px;
+			border:1px solid blue;
+			border-radius:40px;
+			margin-bottom:10px;
+			margin:0 auto;
+			overflow:hidden;
+		}
+		.pic{
+			display:none;
+		}
+		.pic label{
+			cursor:pointer;
+		}
+		.chk-box{
+			position:relative;
+			line-height:30px;
+		}
+		#onWeek{
+			height:15px;
+			width:15px;
+		}
+		.files-lab{
+			position:absolute;
+			top:-2px;
+			left:20px;
+		}
+		.preview{
+			width:100%;
+			height:100%;
+		}
+		.logImgs{
+			border-radius:60px;
+			overflow:hidden;
+		}
+		.logImgs img{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="header-mid">
+			<div class="logRegs">
+				<ul>
+					<li class="loginIn">登录</li>
+					<li class="Register">注册</li>
+				</ul>
+			</div>
+			<div class="logOuts">
+				<ul>
+					<li class="logImgs"><img class="preview1"></li>
+					<li class="username">用户</li>
+					<li class="loginOut">注销</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- loginBox -->
+	<div class="loginBox">
+		<ul><span class="closeIcon">&times;</span>
+			<li class="feedback">欢迎登陆</li>
+			<li><input type="text" class="usernames" placeholder="请输入用户名" style="font-size:16px"></li>
+			<li><input type="text" class="pwd" placeholder="请输入密码"  style="font-size:16px"></li>
+			<li class="upfiles">
+				<div class="imgLoad">
+					<img class="preview">
+				</div>
+				<input type="file" class="pic" id="pic">
+				<label for="pic" >点击上传图像</label>
+			</li>
+			<li class="chk-box">
+				<input type="checkbox" class="onWeek" id="onWeek">
+				<label for="onWeek" class="files-lab">七天免登陆</label>
+			</li>
+			<li><input type="button" class="loginBtn" value="登录"></li>
+		</ul>
+	</div>
+	<script>
+		var logRegs = document.querySelector(".logRegs");
+		var logOuts = document.querySelector(".logOuts");
+		var loginIn = document.querySelector(".loginIn");
+		var loginOut = document.querySelector(".loginOut");
+		var loginBox = document.querySelector(".loginBox");
+		var closeIcon = document.querySelector(".closeIcon");
+		var loginBtn = document.querySelector(".loginBtn");
+		var usernames = document.querySelector(".usernames");
+		var username = document.querySelector(".username");
+		var pwd = document.querySelector(".pwd");
+		var feedback = document.querySelector(".feedback");
+		var pic = document.querySelector(".pic");
+		var preview = document.querySelector(".preview");
+		var preview1 = document.querySelector(".preview1");
+		var fr = new FileReader();
+		console.log(usernames)
+			//点击登录显示登录框
+			center(loginBox); 
+			loginIn.addEventListener("click",function(){
+				// loginBox.style.display="block"
+				center(loginBox); 
+			})
+			//点击关闭loginBox框
+			closeIcon.addEventListener("click",function(){
+				loginBox.style.display="none"
+			})
+			// loginBtn 绑定点击事件
+			loginBtn.addEventListener("click",function(){
+				
+			})
+
+			//图片在线预览
+			pic.addEventListener("change",function(){
+				console.log(fr)
+				console.log(this.files[0])
+				console.log(this.files[0].type)
+				if(!/image/.test(this.files[0].type)){
+					feedback.style.color="red";
+					feedback.innerHTML+=this.files[0].name+"上传非图片，请选择图片上传<br/>";
+					return false;
+				}else if(this.files[0].size>1024*2014){
+					feedback.style.color="red";
+					feedback.innerHTML+="请选择小于1M的图片<br/>";
+					return false;
+				}
+				//把上传文件读取到FilReader中
+				fr.readAsDataURL(this.files[0]);
+				fr.addEventListener("load",function(){
+					// 将读取的值赋给图片
+					preview.src=this.result;
+					preview1.src=this.result;
+				})
+			})
+			//点击登录验证用户名密码
+			loginBtn.addEventListener("click",function(){
+				console.log(usernames.value)
+				if(trim(usernames.value).length==0){
+					feedback.style.color="red";
+					feedback.innerHTML="用户名不能为空";
+					return false;
+				}else if(trim(pwd.value)==0){
+					feedback.style.color="red";
+					feedback.innerHTML="密码不能为空";
+					return false;
+				}else{
+					feedback.innerHTML="";
+				}
+				//勾选验证
+				var d = new Date();
+				d.setDate(d.getDate()+7);
+				var onWeek = document.querySelector(".onWeek");
+				if(onWeek.checked){
+					setCookie("usernames",usernames.value,d);
+
+
+				}else{
+					setCookie("usernames",usernames.value)
+				}
+			})
+				if(getCookie("usernames")){
+					username.innerHTML=getCookie("usernames");
+					loginBox.style.display="none";
+					logRegs.style.display="none";
+					logOuts.style.display="block";
+				}else{
+					console.log(122)
+					loginBox.style.display="block";
+					logOuts.style.display="none";
+				}
+			//点击注销
+			loginOut.addEventListener("click",function(){
+				setCookie("usernames",usernames.value,new Date())
+			});
+			
+			//
+	</script>
+</body>
+</html>
